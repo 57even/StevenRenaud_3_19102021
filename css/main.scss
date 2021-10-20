@@ -1,5 +1,45 @@
+$purple: #9356dc;
+$lightpurple: #f5edff;
+$pink: #ff79da;
+$teal: #99e2d0;
+$lightgrey: #f6f6f6;
+$grey: #eaeaea;
+$darkgrey: #353535;
+
 body {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.like-filled {
+  display: none;
+}
+
+.like {
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+  }
+
+  .like-filled {
+    display: none;
+  }
+
+  &:hover {
+    .like-empty {
+      display: none;
+    }
+
+    .like-filled {
+      display: inline;
+      background-image: linear-gradient(to top right, $pink, $purple);
+      background-clip: text;
+      color: transparent;
+    }
+  }
 }
 
 header {
@@ -12,19 +52,306 @@ header {
   .top-bar {
     display: flex;
     justify-content: space-between;
-    margin: 1em;
+    margin: 1.75em;
     align-items: center;
 
     img {
-      height: 3.0em;
+      height: 3em;
     }
 
     .fa-arrow-left {
       font-size: 2em;
+      color: black;
     }
 
     .top-spacer {
       width: 28px;
+    }
+  }
+
+  .location {
+    font-weight: 500;
+    background-color: $grey;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    margin: 0;
+    color: $darkgrey;
+
+    .spacer {
+      width: 18px;
+      visibility: hidden;
+    }
+  }
+}
+
+.explore {
+  background-color: $lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 75px;
+  font-size: 1.3em;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 1.1em;
+  }
+
+  a {
+    font-weight: 500;
+    font-size: 1.1em;
+    color: white;
+    background-image: linear-gradient(to bottom right, $pink, $purple);
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 20px 30px 20px 30px;
+
+    &:hover {
+      background-image: linear-gradient(to bottom right, darken($pink, 10), darken($purple, 10));
+    }
+  }
+}
+
+.manual {
+  margin: 10% 3% 10% 3%;
+
+  h2 {
+    font-size: 2em;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    background-color: $lightgrey;
+    margin: 8% 4% 8% 4%;
+    border-radius: 30px;
+    padding: 7px 0 7px 0;
+    cursor: default;
+    box-shadow:
+      0 0 1.1px rgba(0, 0, 0, 0.017),
+      0 0 2.65px rgba(0, 0, 0, 0.024),
+      0 0 5px rgba(0, 0, 0, 0.03),
+      0 0 9.95px rgba(0, 0, 0, 0.036),
+      0 0 16.7px rgba(0, 0, 0, 0.043),
+      0 0 40px rgba(0, 0, 0, 0.06);
+
+    i {
+      color: $darkgrey;
+      font-size: 1.3em;
+    }
+
+    p {
+      background-color: $purple;
+      color: white;
+      border-radius: 20px;
+      padding: 5px 10px 5px 10px;
+      margin-left: -15px;
+    }
+
+    h3 {
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.4em;
+    }
+
+    &:hover {
+      background-color: $lightpurple;
+
+      i {
+        color: $purple;
+      }
+    }
+  }
+}
+
+.restaurants {
+  padding: 4%;
+  background-color: $lightgrey;
+  margin-bottom: 8%;
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 20px;
+    margin: 5% 0 5% 0;
+    box-shadow:
+      0 0 1.1px rgba(0, 0, 0, 0.017),
+      0 0 2.65px rgba(0, 0, 0, 0.024),
+      0 0 5px rgba(0, 0, 0, 0.03),
+      0 0 9.95px rgba(0, 0, 0, 0.036),
+      0 0 16.7px rgba(0, 0, 0, 0.043),
+      0 0 40px rgba(0, 0, 0, 0.06);
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 17em;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .card-main {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+
+      h3 {
+        margin: 4% 4% 1% 4%;
+        font-size: 1.75em;
+        color: black;
+      }
+
+      p {
+        color: black;
+        font-size: 1.5em;
+        font-weight: 400;
+        margin: 0 4% 4% 4%;
+      }
+    }
+
+    .like {
+      position: absolute;
+      margin: -12% 0 0 80%;
+    }
+  }
+}
+
+footer {
+  background-color: $darkgrey;
+  padding: 3% 3% 8% 3%;
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    font-family: "Shrikhand", cursive;
+    font-size: 2em;
+    color: white;
+    margin: 3%;
+  }
+
+  a {
+    font-size: 1.3em;
+    text-decoration: none;
+    color: white;
+    margin: 1.25% 3% 1.25% 3%;
+
+    i {
+      width: 30px;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: $lightgrey;
+  border-radius: 50px 50px 0 0;
+  padding: 3% 3% 3% 3%;
+  margin: -10% 0 0 0;
+
+  .restaurant-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3%;
+    font-family: "Shrikhand", cursive;
+    font-size: 1.75em;
+
+    a {
+      font-size: 1.75em;
+      margin-right: 15px;
+    }
+  }
+
+  .menu-list {
+    width: 100%;
+
+    h2 {
+      position: relative;
+      width: 100%;
+      padding-bottom: 10px;
+      font-weight: 400;
+      // border-bottom: solid 3px $teal;
+    }
+
+    h2:after {
+      content: "";
+      background: $teal;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      margin: 5% 0 5% 0;
+      border-radius: 20px;
+      padding: 3%;
+      text-decoration: none;
+      color: black;
+      font-size: 1.33em;
+      box-shadow:
+        0 0 1.1px rgba(0, 0, 0, 0.017),
+        0 0 2.65px rgba(0, 0, 0, 0.024),
+        0 0 5px rgba(0, 0, 0, 0.03),
+        0 0 9.95px rgba(0, 0, 0, 0.036),
+        0 0 16.7px rgba(0, 0, 0, 0.043),
+        0 0 40px rgba(0, 0, 0, 0.06);
+
+      h3 {
+        margin-top: 1%;
+        margin-bottom: 1%;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          margin-top: 1%;
+          margin-bottom: 1%;
+        }
+
+        .price {
+          font-weight: 500;
+          margin-right: 5%;
+        }
+      }
+    }
+  }
+
+  .order-button {
+    font-weight: 500;
+    font-size: 2em;
+    color: white;
+    background-image: linear-gradient(to bottom right, $pink, $purple);
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 20px 75px 20px 75px;
+    margin: 10% 0 20% 0;
+
+    &:hover {
+      background-image: linear-gradient(to bottom right, darken($pink, 10), darken($purple, 10));
     }
   }
 }
