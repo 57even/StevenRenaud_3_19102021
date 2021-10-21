@@ -44,12 +44,6 @@ $darkgrey: #353535;
   animation: spinner-bg 1s;
 }
 
-// .spinner {
-//   z-index: 999;
-//   width: 50px;
-//   height: 50px;
-// }
-
 /* Animation */
 
 @keyframes spinner {
@@ -128,34 +122,32 @@ body {
   a {
     text-decoration: none;
     color: black;
-    font-size: 2em;
     padding: 3px;
+    font-size: 2em;
   }
 
   .like-filled {
     position: absolute;
-    // display: none;
-    font-size: 2em;
-    visibility: hidden;
+    color: transparent;
+    background-image: linear-gradient(to top right, $pink, $purple);
+    transform: scale(0);
   }
 
   .like-empty {
     position: absolute;
+    z-index: 2;
   }
 
   &:hover {
     .like-empty {
-      // display: none;
-      visibility: hidden;
+      opacity: 0;
+      transition-duration: 300ms;
     }
 
     .like-filled {
-      // display: inline;
-      visibility: visible;
-      background-image: linear-gradient(to top right, $pink, $purple);
       background-clip: text;
-      color: transparent;
-      transition: 250ms;
+      transform: scale(1);
+      transition: transform 150ms;
     }
   }
 }
@@ -177,7 +169,7 @@ header {
     position: relative;
     box-shadow:
       0 0 0.5px rgba(0, 0, 0, 0.021),
-      0 0 1.32px rgba(0, 0, 0, 0.030),
+      0 0 1.32px rgba(0, 0, 0, 0.03),
       0 0 2.5px rgba(0, 0, 0, 0.037),
       0 0 9.95px rgba(0, 0, 0, 0.045),
       0 0 8.35px rgba(0, 0, 0, 0.053),
@@ -206,6 +198,10 @@ header {
     padding: 20px;
     margin: 0;
     color: $darkgrey;
+
+    &:hover {
+      cursor: default;
+    }
 
     .spacer {
       width: 18px;
@@ -242,6 +238,7 @@ header {
     text-decoration: none;
     border-radius: 50px;
     padding: 20px 30px 20px 30px;
+    transition-duration: 250ms;
     box-shadow:
       0 0 1.1px rgba(0, 0, 0, 0.017),
       0 0 2.65px rgba(0, 0, 0, 0.024),
@@ -249,6 +246,16 @@ header {
       0 0 9.95px rgba(0, 0, 0, 0.036),
       0 0 16.7px rgba(0, 0, 0, 0.043),
       0 0 40px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      box-shadow:
+        0 0 1.1px rgba(0, 0, 0, 0.034),
+        0 0 2.65px rgba(0, 0, 0, 0.048),
+        0 0 5px rgba(0, 0, 0, 0.06),
+        0 0 9.95px rgba(0, 0, 0, 0.072),
+        0 0 16.7px rgba(0, 0, 0, 0.086),
+        0 0 40px rgba(0, 0, 0, 0.12);
+    }
 
     &::before {
       position: absolute;
@@ -258,7 +265,7 @@ header {
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: linear-gradient(to bottom right, darken($pink, 10), darken($purple, 10));
+      background-image: linear-gradient(to bottom right, lighten($pink, 5), lighten($purple, 5));
       z-index: -1;
       transition: opacity 250ms linear;
       opacity: 0;
@@ -294,6 +301,16 @@ header {
       0 0 9.95px rgba(0, 0, 0, 0.036),
       0 0 16.7px rgba(0, 0, 0, 0.043),
       0 0 40px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      box-shadow:
+        0 0 1.1px rgba(0, 0, 0, 0.034),
+        0 0 2.65px rgba(0, 0, 0, 0.048),
+        0 0 5px rgba(0, 0, 0, 0.06),
+        0 0 9.95px rgba(0, 0, 0, 0.072),
+        0 0 16.7px rgba(0, 0, 0, 0.086),
+        0 0 40px rgba(0, 0, 0, 0.12);
+    }
 
     i {
       color: $darkgrey;
@@ -381,8 +398,25 @@ header {
     }
 
     .like {
+      margin: -75px 60px 0 0;
+    }
+
+    .new {
       position: absolute;
-      margin: 315px 60px 0 0;
+      background-color: $teal;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 1.5em;
+
+      &:hover {
+        cursor: default;
+      }
+
+      h4 {
+        font-size: 1.25em;
+        margin: 0;
+        color: #008766;
+      }
     }
   }
 }
@@ -583,6 +617,7 @@ footer {
     padding: 20px 75px 20px 75px;
     margin: 2em 0 4em 0;
     z-index: 1;
+    transition-duration: 250ms;
     box-shadow:
       0 0 1.1px rgba(0, 0, 0, 0.017),
       0 0 2.65px rgba(0, 0, 0, 0.024),
@@ -590,6 +625,16 @@ footer {
       0 0 9.95px rgba(0, 0, 0, 0.036),
       0 0 16.7px rgba(0, 0, 0, 0.043),
       0 0 40px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      box-shadow:
+        0 0 1.1px rgba(0, 0, 0, 0.034),
+        0 0 2.65px rgba(0, 0, 0, 0.048),
+        0 0 5px rgba(0, 0, 0, 0.06),
+        0 0 9.95px rgba(0, 0, 0, 0.072),
+        0 0 16.7px rgba(0, 0, 0, 0.086),
+        0 0 40px rgba(0, 0, 0, 0.12);
+    }
 
     &::before {
       position: absolute;
@@ -599,7 +644,7 @@ footer {
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: linear-gradient(to bottom right, darken($pink, 10), darken($purple, 10));
+      background-image: linear-gradient(to bottom right, lighten($pink, 5), lighten($purple, 5));
       z-index: -1;
       transition: opacity 250ms linear;
       opacity: 0;

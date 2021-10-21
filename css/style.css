@@ -99,26 +99,27 @@ body {
 .like a {
   text-decoration: none;
   color: black;
-  font-size: 2em;
   padding: 3px;
+  font-size: 2em;
 }
 .like .like-filled {
   position: absolute;
-  font-size: 2em;
-  visibility: hidden;
+  color: transparent;
+  background-image: linear-gradient(to top right, #ff79da, #9356dc);
+  transform: scale(0);
 }
 .like .like-empty {
   position: absolute;
+  z-index: 2;
 }
 .like:hover .like-empty {
-  visibility: hidden;
+  opacity: 0;
+  transition-duration: 300ms;
 }
 .like:hover .like-filled {
-  visibility: visible;
-  background-image: linear-gradient(to top right, #ff79da, #9356dc);
   background-clip: text;
-  color: transparent;
-  transition: 250ms;
+  transform: scale(1);
+  transition: transform 150ms;
 }
 
 header {
@@ -157,6 +158,9 @@ header .location {
   margin: 0;
   color: #353535;
 }
+header .location:hover {
+  cursor: default;
+}
 header .location .spacer {
   width: 18px;
   visibility: hidden;
@@ -188,7 +192,11 @@ header .location .spacer {
   text-decoration: none;
   border-radius: 50px;
   padding: 20px 30px 20px 30px;
+  transition-duration: 250ms;
   box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.017), 0 0 2.65px rgba(0, 0, 0, 0.024), 0 0 5px rgba(0, 0, 0, 0.03), 0 0 9.95px rgba(0, 0, 0, 0.036), 0 0 16.7px rgba(0, 0, 0, 0.043), 0 0 40px rgba(0, 0, 0, 0.06);
+}
+.explore a:hover {
+  box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.034), 0 0 2.65px rgba(0, 0, 0, 0.048), 0 0 5px rgba(0, 0, 0, 0.06), 0 0 9.95px rgba(0, 0, 0, 0.072), 0 0 16.7px rgba(0, 0, 0, 0.086), 0 0 40px rgba(0, 0, 0, 0.12);
 }
 .explore a::before {
   position: absolute;
@@ -198,7 +206,7 @@ header .location .spacer {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to bottom right, #ff46cc, #782cd3);
+  background-image: linear-gradient(to bottom right, #ff93e1, #a16be0);
   z-index: -1;
   transition: opacity 250ms linear;
   opacity: 0;
@@ -224,6 +232,9 @@ header .location .spacer {
   padding: 7px 0 7px 0;
   cursor: default;
   box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.017), 0 0 2.65px rgba(0, 0, 0, 0.024), 0 0 5px rgba(0, 0, 0, 0.03), 0 0 9.95px rgba(0, 0, 0, 0.036), 0 0 16.7px rgba(0, 0, 0, 0.043), 0 0 40px rgba(0, 0, 0, 0.06);
+}
+.manual div:hover {
+  box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.034), 0 0 2.65px rgba(0, 0, 0, 0.048), 0 0 5px rgba(0, 0, 0, 0.06), 0 0 9.95px rgba(0, 0, 0, 0.072), 0 0 16.7px rgba(0, 0, 0, 0.086), 0 0 40px rgba(0, 0, 0, 0.12);
 }
 .manual div i {
   color: #353535;
@@ -294,8 +305,22 @@ header .location .spacer {
   margin: 0 20px 20px 20px;
 }
 .restaurants .card .like {
+  margin: -75px 60px 0 0;
+}
+.restaurants .card .new {
   position: absolute;
-  margin: 315px 60px 0 0;
+  background-color: #99e2d0;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 1.5em;
+}
+.restaurants .card .new:hover {
+  cursor: default;
+}
+.restaurants .card .new h4 {
+  font-size: 1.25em;
+  margin: 0;
+  color: #008766;
 }
 
 footer {
@@ -466,7 +491,11 @@ footer a i {
   padding: 20px 75px 20px 75px;
   margin: 2em 0 4em 0;
   z-index: 1;
+  transition-duration: 250ms;
   box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.017), 0 0 2.65px rgba(0, 0, 0, 0.024), 0 0 5px rgba(0, 0, 0, 0.03), 0 0 9.95px rgba(0, 0, 0, 0.036), 0 0 16.7px rgba(0, 0, 0, 0.043), 0 0 40px rgba(0, 0, 0, 0.06);
+}
+.menu .order-button:hover {
+  box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.034), 0 0 2.65px rgba(0, 0, 0, 0.048), 0 0 5px rgba(0, 0, 0, 0.06), 0 0 9.95px rgba(0, 0, 0, 0.072), 0 0 16.7px rgba(0, 0, 0, 0.086), 0 0 40px rgba(0, 0, 0, 0.12);
 }
 .menu .order-button::before {
   position: absolute;
@@ -476,7 +505,7 @@ footer a i {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to bottom right, #ff46cc, #782cd3);
+  background-image: linear-gradient(to bottom right, #ff93e1, #a16be0);
   z-index: -1;
   transition: opacity 250ms linear;
   opacity: 0;
