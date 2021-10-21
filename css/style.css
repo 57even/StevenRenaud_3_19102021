@@ -1,31 +1,124 @@
+/* Animation */
+/* Absolute Center Spinner */
+.spinner {
+  z-index: 999;
+  display: block;
+  font-size: 10px;
+  position: fixed;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border: 15px solid #9356dc;
+  border-radius: 100%;
+  border-bottom-color: transparent;
+  visibility: hidden;
+  animation: spinner 1s linear 0s;
+}
+
+/* Transparent Overlay */
+.spinner-bg {
+  z-index: 999;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  visibility: hidden;
+  animation: spinner-bg 1s;
+}
+
+/* Animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+    visibility: visible;
+  }
+  100% {
+    transform: rotate(360deg);
+    visibility: hidden;
+  }
+}
+@keyframes spinner-bg {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+@keyframes fadeinup {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeinup {
+  from {
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+.fade-in-up {
+  animation: fadeinup 1s;
+}
+
+.anim-delay1 {
+  animation-delay: 0.2s;
+}
+.anim-delay2 {
+  animation-delay: 0.4s;
+}
+.anim-delay3 {
+  animation-delay: 0.6s;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
 
-.like-filled {
-  display: none;
-}
-
 .like {
   cursor: pointer;
+  position: relative;
 }
 .like a {
   text-decoration: none;
   color: black;
   font-size: 2em;
+  padding: 3px;
 }
 .like .like-filled {
-  display: none;
+  position: absolute;
+  font-size: 2em;
+  visibility: hidden;
+}
+.like .like-empty {
+  position: absolute;
 }
 .like:hover .like-empty {
-  display: none;
+  visibility: hidden;
 }
 .like:hover .like-filled {
-  display: inline;
+  visibility: visible;
   background-image: linear-gradient(to top right, #ff79da, #9356dc);
   background-clip: text;
   color: transparent;
+  transition: 250ms;
 }
 
 header {
@@ -86,6 +179,8 @@ header .location .spacer {
   font-size: 1.1em;
 }
 .explore a {
+  position: relative;
+  z-index: 1;
   font-weight: 500;
   font-size: 1.1em;
   color: white;
@@ -95,8 +190,21 @@ header .location .spacer {
   padding: 20px 30px 20px 30px;
   box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.017), 0 0 2.65px rgba(0, 0, 0, 0.024), 0 0 5px rgba(0, 0, 0, 0.03), 0 0 9.95px rgba(0, 0, 0, 0.036), 0 0 16.7px rgba(0, 0, 0, 0.043), 0 0 40px rgba(0, 0, 0, 0.06);
 }
-.explore a:hover {
+.explore a::before {
+  position: absolute;
+  border-radius: 50px;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-image: linear-gradient(to bottom right, #ff46cc, #782cd3);
+  z-index: -1;
+  transition: opacity 250ms linear;
+  opacity: 0;
+}
+.explore a:hover::before {
+  opacity: 1;
 }
 
 .manual {
@@ -136,9 +244,11 @@ header .location .spacer {
 }
 .manual div:hover {
   background-color: #f5edff;
+  transition-duration: 0.2s;
 }
 .manual div:hover i {
   color: #9356dc;
+  transition-duration: 0.2s;
 }
 
 .restaurants {
@@ -185,7 +295,7 @@ header .location .spacer {
 }
 .restaurants .card .like {
   position: absolute;
-  margin: 315px 50px 0 0;
+  margin: 315px 60px 0 0;
 }
 
 footer {
@@ -233,6 +343,11 @@ footer a i {
 .menu .restaurant-header a {
   font-size: 1.75em;
   margin-right: 15px;
+  padding: 5px;
+}
+.menu .restaurant-header .like {
+  margin-right: 60px;
+  margin-bottom: 60px;
 }
 .menu .menu-list {
   width: 100%;
@@ -252,35 +367,96 @@ footer a i {
   width: 50px;
   height: 3px;
 }
+.menu .menu-list .list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (min-width: 993px) {
+  .menu .menu-list .list {
+    width: 1000px;
+    gap: 15px;
+    font-size: 0.79em;
+    flex-wrap: wrap;
+  }
+}
 .menu .menu-list a {
   display: flex;
-  flex-direction: column;
   background-color: white;
+  align-items: center;
+  justify-content: space-between;
   margin: 5% 0 5% 0;
   border-radius: 20px;
-  padding: 3%;
   text-decoration: none;
   color: black;
   font-size: 1.33em;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
   box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.017), 0 0 2.65px rgba(0, 0, 0, 0.024), 0 0 5px rgba(0, 0, 0, 0.03), 0 0 9.95px rgba(0, 0, 0, 0.036), 0 0 16.7px rgba(0, 0, 0, 0.043), 0 0 40px rgba(0, 0, 0, 0.06);
 }
-.menu .menu-list a h3 {
+.menu .menu-list a:hover .check-div {
+  width: 25%;
+  font-size: 2em;
+  transition: 500ms ease;
+}
+.menu .menu-list a:hover .check-div i {
+  transform: rotate(1turn);
+  transition: 0.5s;
+}
+.menu .menu-list a p {
   margin-top: 1%;
   margin-bottom: 1%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.menu .menu-list a div {
+.menu .menu-list a .price {
+  text-overflow: unset;
+  font-weight: 500;
+  margin-right: 25px;
+  min-width: 38px;
+  padding-left: 15px;
+}
+.menu .menu-list a .link-card {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 10%;
+  padding: 30px 0 30px 30px;
 }
-.menu .menu-list a div p {
+.menu .menu-list a .link-card div {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.menu .menu-list a .link-card div h3 {
   margin-top: 1%;
   margin-bottom: 1%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.menu .menu-list a div .price {
-  font-weight: 500;
-  margin-right: 5%;
+.menu .menu-list a .check-div {
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  font-size: 0;
+  height: 100%;
+  background-color: #99e2d0;
+  border-radius: 0 20px 20px 0;
+  transition: 250ms;
+}
+.menu .menu-list a .check-div i {
+  color: white;
 }
 .menu .order-button {
+  position: relative;
   font-weight: 500;
   font-size: 2em;
   color: white;
@@ -288,11 +464,88 @@ footer a i {
   text-decoration: none;
   border-radius: 50px;
   padding: 20px 75px 20px 75px;
-  margin: 10% 0 20% 0;
+  margin: 2em 0 4em 0;
+  z-index: 1;
   box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.017), 0 0 2.65px rgba(0, 0, 0, 0.024), 0 0 5px rgba(0, 0, 0, 0.03), 0 0 9.95px rgba(0, 0, 0, 0.036), 0 0 16.7px rgba(0, 0, 0, 0.043), 0 0 40px rgba(0, 0, 0, 0.06);
 }
-.menu .order-button:hover {
+.menu .order-button::before {
+  position: absolute;
+  border-radius: 50px;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-image: linear-gradient(to bottom right, #ff46cc, #782cd3);
+  z-index: -1;
+  transition: opacity 250ms linear;
+  opacity: 0;
+}
+.menu .order-button:hover::before {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 993px) {
+  .manual {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .manual section {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+    width: 100%;
+  }
+  .manual section .step {
+    width: 100%;
+    margin: 3%;
+    gap: 13px;
+  }
+
+  .restaurants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .restaurants section {
+    max-width: 1150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+  .restaurants section .card {
+    width: 550px;
+    margin: 0;
+  }
+
+  .menu .restaurant-header {
+    max-width: 1200px;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+  }
+  .menu-list h2 {
+    margin-top: 35px;
+    margin-bottom: 25px;
+  }
+  .menu-list .list a {
+    margin: 0;
+  }
+
+  footer {
+    align-items: center;
+    padding: 25px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
