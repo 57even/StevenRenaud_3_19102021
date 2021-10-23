@@ -6,7 +6,7 @@ $lightgrey: #f6f6f6;
 $grey: #eaeaea;
 $darkgrey: #353535;
 
-/* Animation */
+/* Animations */
 
 /* Absolute Center Spinner */
 .spinner {
@@ -14,7 +14,6 @@ $darkgrey: #353535;
   display: block;
   font-size: 10px;
   position: fixed;
-  overflow: show;
   margin: auto;
   top: 0;
   left: 0;
@@ -22,7 +21,6 @@ $darkgrey: #353535;
   right: 0;
   width: 50px;
   height: 50px;
-  // margin-top: -0.5em;
   border: 15px solid $purple;
   border-radius: 100%;
   border-bottom-color: transparent;
@@ -43,8 +41,6 @@ $darkgrey: #353535;
   visibility: hidden;
   animation: spinner-bg 1s;
 }
-
-/* Animation */
 
 @keyframes spinner {
   0% {
@@ -80,18 +76,6 @@ $darkgrey: #353535;
   }
 }
 
-@-webkit-keyframes fadeinup {
-  from {
-    transform: translate3d(0, 40px, 0);
-    opacity: 0;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-}
-
 .fade-in-up {
   animation: fadeinup 1s;
 }
@@ -110,6 +94,7 @@ $darkgrey: #353535;
   }
 }
 
+// General
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -194,6 +179,7 @@ header {
     background-color: $grey;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 25px;
     padding: 20px;
     margin: 0;
@@ -201,6 +187,10 @@ header {
 
     &:hover {
       cursor: default;
+    }
+
+    i {
+      font-size: 1.75em;
     }
 
     .spacer {
@@ -284,7 +274,7 @@ header {
     font-size: 2em;
   }
 
-  div {
+  .manual-content div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -663,7 +653,7 @@ footer {
     flex-direction: column;
     align-items: center;
 
-    section {
+    .manual-content {
       display: flex;
       justify-content: center;
       margin: 2%;
@@ -683,7 +673,7 @@ footer {
     align-items: center;
     gap: 50px;
 
-    section {
+    .restaurants-content {
       max-width: 1150px;
       display: flex;
       flex-wrap: wrap;
