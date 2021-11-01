@@ -12,16 +12,16 @@ $darkgrey: #353535;
 .spinner {
   z-index: 999;
   display: block;
-  font-size: 10px;
+  font-size: 0.625em;
   position: fixed;
   margin: auto;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  width: 50px;
-  height: 50px;
-  border: 15px solid $purple;
+  width: 3.125em;
+  height: 3.125em;
+  border: 0.938em solid $purple;
   border-radius: 100%;
   border-bottom-color: transparent;
   visibility: hidden;
@@ -66,7 +66,7 @@ $darkgrey: #353535;
 
 @keyframes fadeinup {
   from {
-    transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 2.5em, 0);
     opacity: 0;
   }
 
@@ -107,8 +107,8 @@ body {
   a {
     text-decoration: none;
     color: black;
-    padding: 3px;
-    font-size: 2em;
+    padding: 0.188rem;
+    font-size: 2.25em;
   }
 
   .like-filled {
@@ -131,6 +131,7 @@ body {
 
     .like-filled {
       background-clip: text;
+      -webkit-background-clip: text;
       transform: scale(1);
       transition: transform 150ms;
     }
@@ -143,7 +144,8 @@ header {
   img {
     object-fit: cover;
     width: 100%;
-    height: 600px;
+    height: 65vw;
+    max-height: 50em;
   }
 
   .top-bar {
@@ -162,6 +164,7 @@ header {
 
     img {
       height: 3em;
+      margin-top: 0.313em;
     }
 
     .fa-arrow-left {
@@ -170,7 +173,7 @@ header {
     }
 
     .top-spacer {
-      width: 28px;
+      width: 1.75em;
     }
   }
 
@@ -180,8 +183,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
-    padding: 20px;
+    gap: 1.563em;
+    padding: 0.313em;
     margin: 0;
     color: $darkgrey;
 
@@ -194,7 +197,7 @@ header {
     }
 
     .spacer {
-      width: 18px;
+      width: 1.125em;
       visibility: hidden;
     }
   }
@@ -205,17 +208,20 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 75px;
+  padding: 3.75em 1.875em 4.375em 1.875em;
   font-size: 1.3em;
   text-align: center;
 
   h1 {
     margin: 0;
+    font-size: 1.5em;
+    padding-left: 3.125em;
+    padding-right: 3.125em;
   }
 
   p {
-    font-weight: 400;
-    font-size: 1.1em;
+    font-weight: 300;
+    font-size: 1.2em;
   }
 
   a {
@@ -226,8 +232,8 @@ header {
     color: white;
     background-image: linear-gradient(to bottom right, $pink, $purple);
     text-decoration: none;
-    border-radius: 50px;
-    padding: 20px 30px 20px 30px;
+    border-radius: 3.125em;
+    padding: 1.25em 1.875em 1.25em 1.875em;
     transition-duration: 250ms;
     box-shadow:
       0 0 1.1px rgba(0, 0, 0, 0.017),
@@ -249,7 +255,7 @@ header {
 
     &::before {
       position: absolute;
-      border-radius: 50px;
+      border-radius: 3.125em;
       content: "";
       top: 0;
       right: 0;
@@ -278,11 +284,11 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 25px;
+    gap: 1.563em;
     background-color: $lightgrey;
     margin: 8% 4% 8% 4%;
-    border-radius: 30px;
-    padding: 7px 0 7px 0;
+    border-radius: 1.875em;
+    padding: 0.438em 0 0.438em 0;
     cursor: default;
     box-shadow:
       0 0 1.1px rgba(0, 0, 0, 0.017),
@@ -303,16 +309,16 @@ header {
     }
 
     i {
-      color: $darkgrey;
-      font-size: 1.3em;
+      color: #7e7e7e;
+      font-size: 1.75em;
     }
 
     p {
       background-color: $purple;
       color: white;
-      border-radius: 20px;
-      padding: 5px 10px 5px 10px;
-      margin-left: -15px;
+      border-radius: 1.25em;
+      padding: 0.313em 0.625em 0.313em 0.625em;
+      margin-left: -0.938em;
     }
 
     h3 {
@@ -348,9 +354,9 @@ header {
     flex-direction: column;
     align-items: flex-end;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 1.25em;
     margin: 5% 0 5% 0;
-    height: 390px;
+    height: 24.375em;
     box-shadow:
       0 0 1.1px rgba(0, 0, 0, 0.017),
       0 0 2.65px rgba(0, 0, 0, 0.024),
@@ -363,7 +369,7 @@ header {
       object-fit: cover;
       width: 100%;
       height: 17em;
-      border-radius: 20px 20px 0 0;
+      border-radius: 1.25em 1.25em 0 0;
     }
 
     .card-main {
@@ -374,7 +380,7 @@ header {
       height: 100%;
 
       h3 {
-        margin: 25px 25px 5px 25px;
+        margin: 1em 1em 0.313em 1em;
         font-size: 1.75em;
         color: black;
       }
@@ -383,19 +389,19 @@ header {
         color: black;
         font-size: 1.5em;
         font-weight: 400;
-        margin: 0 20px 20px 20px;
+        margin: 0 1.25em 1.25em 1.25em;
       }
     }
 
     .like {
-      margin: -75px 60px 0 0;
+      margin: -4.688em 3.75em 0 0;
     }
 
     .new {
       position: absolute;
       background-color: $teal;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 0.625em;
+      border-radius: 0.313em;
       margin: 1.5em;
 
       &:hover {
@@ -431,7 +437,7 @@ footer {
     margin: 1.25% 3% 1.25% 3%;
 
     i {
-      width: 30px;
+      width: 1.875em;
     }
   }
 }
@@ -443,7 +449,7 @@ footer {
   flex-direction: column;
   position: relative;
   background-color: $lightgrey;
-  border-radius: 50px 50px 0 0;
+  border-radius: 3.125em 3.125em 0 0;
   padding: 3% 3% 3% 3%;
   margin: -10% 0 0 0;
 
@@ -458,13 +464,13 @@ footer {
 
     a {
       font-size: 1.75em;
-      margin-right: 15px;
-      padding: 5px;
+      margin-right: 0.938em;
+      padding: 0.313em;
     }
 
     .like {
-      margin-right: 60px;
-      margin-bottom: 60px;
+      margin-right: 2.75em;
+      margin-bottom: 2.75em;
     }
   }
 
@@ -474,7 +480,7 @@ footer {
     h2 {
       position: relative;
       width: 100%;
-      padding-bottom: 10px;
+      padding-bottom: 0.625em;
       font-weight: 400;
     }
 
@@ -484,8 +490,8 @@ footer {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 50px;
-      height: 3px;
+      width: 2em;
+      height: 0.188rem;
     }
 
     .list {
@@ -494,14 +500,6 @@ footer {
       align-items: center;
       flex-direction: column;
       justify-content: center;
-
-      @media only screen and (min-width: 993px) {
-        // flex-direction: row;
-        width: 1000px;
-        gap: 15px;
-        font-size: 0.79em;
-        flex-wrap: wrap;
-      }
     }
 
     a {
@@ -509,13 +507,13 @@ footer {
       background-color: white;
       align-items: center;
       justify-content: space-between;
-      margin: 5% 0 5% 0;
-      border-radius: 20px;
+      margin: 0.5em 0 0.5em 0;
+      border-radius: 1.25em;
       text-decoration: none;
       color: black;
       font-size: 1.33em;
       width: 100%;
-      height: 125px;
+      height: 5em;
       overflow: hidden;
       box-shadow:
         0 0 1.1px rgba(0, 0, 0, 0.017),
@@ -527,13 +525,13 @@ footer {
 
       &:hover {
         .check-div {
-          width: 25%;
+          width: 22%;
           font-size: 2em;
-          transition: 500ms ease;
+          transition: 500ms;
 
           i {
             transform: rotate(1turn);
-            transition: 0.5s;
+            transition: transform 0.5s;
           }
         }
       }
@@ -548,9 +546,9 @@ footer {
       .price {
         text-overflow: unset;
         font-weight: 500;
-        margin-right: 25px;
-        min-width: 38px;
-        padding-left: 15px;
+        margin-right: 0.5em;
+        min-width: 2.375em;
+        padding-left: 0.938em;
       }
 
       .link-card {
@@ -559,7 +557,7 @@ footer {
         align-items: center;
         width: 100%;
         min-width: 10%;
-        padding: 30px 0 30px 30px;
+        padding: 1.875em 0 1.875em 1.875em;
 
         div {
           display: flex;
@@ -586,7 +584,7 @@ footer {
         font-size: 0;
         height: 100%;
         background-color: $teal;
-        border-radius: 0 20px 20px 0;
+        border-radius: 0;
         transition: 250ms;
 
         i {
@@ -603,9 +601,9 @@ footer {
     color: white;
     background-image: linear-gradient(to bottom right, $pink, $purple);
     text-decoration: none;
-    border-radius: 50px;
-    padding: 20px 75px 20px 75px;
-    margin: 2em 0 4em 0;
+    border-radius: 3.125em;
+    padding: 0.75em 2em 0.75em 2em;
+    margin: 1.25em 0 2.5em 0;
     z-index: 1;
     transition-duration: 250ms;
     box-shadow:
@@ -628,7 +626,7 @@ footer {
 
     &::before {
       position: absolute;
-      border-radius: 50px;
+      border-radius: 3.125em;
       content: "";
       top: 0;
       right: 0;
@@ -643,6 +641,12 @@ footer {
     &:hover::before {
       opacity: 1;
     }
+  }
+}
+
+@media only screen and (max-width: 524px) {
+  body {
+    font-size: 3vw;
   }
 }
 
@@ -662,7 +666,7 @@ footer {
       .step {
         width: 100%;
         margin: 3%;
-        gap: 13px;
+        gap: 0.813em;
       }
     }
   }
@@ -671,7 +675,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 3.125em;
 
     .restaurants-content {
       max-width: 1150px;
@@ -679,10 +683,10 @@ footer {
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 50px;
+      gap: 3.125em;
 
       .card {
-        width: 550px;
+        width: 34.375em;
         margin: 0;
       }
     }
@@ -690,7 +694,7 @@ footer {
 
   .menu {
     .restaurant-header {
-      max-width: 1200px;
+      max-width: 1000px;
     }
   }
 
@@ -699,27 +703,33 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
+    max-width: 800px;
 
     h2 {
-      margin-top: 35px;
-      margin-bottom: 25px;
+      margin-top: 2.188em;
+      margin-bottom: 1.563em;
     }
 
     .list {
-      // flex-direction: row;
-      // gap: 30px;
-      // font-size: 0.9em;
+      width: 800px !important;
+      gap: 0.938em !important;
+      font-size: 0.79em !important;
+      flex-wrap: wrap !important;
 
       a {
         margin: 0;
         // width: 390px;
+        &:hover {
+          .check-div {
+            width: 100px;
+          }
+        }
       }
     }
   }
 
   footer {
     align-items: center;
-    padding: 25px;
+    padding: 1.563em;
   }
 }
