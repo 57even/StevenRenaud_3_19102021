@@ -64,6 +64,7 @@ $darkgrey: #353535;
   }
 }
 
+// Fade in up anim for menu
 @keyframes fadeinup {
   from {
     transform: translate3d(0, 2.5em, 0);
@@ -299,6 +300,14 @@ header {
       0 0 40px rgba(0, 0, 0, 0.06);
 
     &:hover {
+      background-color: $lightpurple;
+      transition-duration: 0.2s;
+
+      i {
+        color: $purple;
+        transition-duration: 0.2s;
+      }
+
       box-shadow:
         0 0 1.1px rgba(0, 0, 0, 0.034),
         0 0 2.65px rgba(0, 0, 0, 0.048),
@@ -326,16 +335,6 @@ header {
       text-align: center;
       font-weight: 500;
       font-size: 1.4em;
-    }
-
-    &:hover {
-      background-color: $lightpurple;
-      transition-duration: 0.2s;
-
-      i {
-        color: $purple;
-        transition-duration: 0.2s;
-      }
     }
   }
 }
@@ -718,7 +717,7 @@ footer {
 
       a {
         margin: 0;
-        // width: 390px;
+
         &:hover {
           .check-div {
             width: 100px;
